@@ -1,0 +1,33 @@
+# Import necessary libraries
+import random
+
+# Sample movie dataset (title, genre)
+movies = [
+    {"title": "The Shawshank Redemption", "genre": "Drama"},
+    {"title": "The Godfather", "genre": "Crime"},
+    {"title": "The Dark Knight", "genre": "Action"}
+]
+
+# Function to recommend a movie based on genre
+def recommend_movie(genre):
+    recommended_movies = [movie["title"] for movie in movies if movie["genre"] == genre]
+    if recommended_movies:
+        return random.choice(recommended_movies)
+    else:
+        return "No movies found in that genre."
+
+# Main function to interact with the chatbot
+def chat():
+    print("Welcome to the Movie Recommendation Chatbot!")
+    while True:
+        user_input = input("Enter your preferred movie genre or type 'exit' to quit: ")
+        if user_input.lower() == "exit":
+            print("Goodbye!")
+            break
+        else:
+            recommended_movie = recommend_movie(user_input)
+            print("Recommended movie:", recommended_movie)
+
+# Run the chatbot
+if __name__ == "__main__":
+    chat()
